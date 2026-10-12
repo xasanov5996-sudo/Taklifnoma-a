@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>To'y taklifnomasi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500&display=swap">
+<style>
+:root{--em:#0f3d33;--em2:#1a5a49;--gold:#d4aa55;--iv:#f7f0e1;--rose:#b5476a;box-sizing:border-box;
+ padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html,body{height:100%;margin:0;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--em);color:var(--iv);font-family:'Jost','Helvetica Neue',Arial,sans-serif;font-weight:300;line-height:1.6;overflow:hidden;
+ background-image:radial-gradient(circle at 50% 20%,var(--em2),transparent 65%),repeating-linear-gradient(45deg,transparent 0 22px,rgba(212,170,85,.06) 22px 23px),repeating-linear-gradient(-45deg,transparent 0 22px,rgba(212,170,85,.06) 22px 23px)}
+.pager{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.pager::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;padding:24px 22px 76px;overflow-y:auto;position:relative}
+.box{width:100%;max-width:420px;text-align:center;position:relative}
+.serif{font-family:'Cormorant Garamond',Georgia,serif}
+.gold{color:var(--gold)}
+.r{opacity:0}
+.on .r{animation:rise .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0)*.22s + .15s)}
+@keyframes rise{from{opacity:0;transform:translateY(22px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+/* cover */
+.cover{aspect-ratio:300/430;max-height:78vh;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:70px 34px 40px}
+.cover svg{position:absolute;inset:0;width:100%;height:100%}
+.cover path{fill:none;stroke:var(--gold);stroke-dasharray:1;stroke-dashoffset:1}
+.on .cover path{animation:draw 2.6s ease forwards}
+.on .cover path+path{animation-delay:.5s;stroke-opacity:.5}
+@keyframes draw{to{stroke-dashoffset:0}}
+.names{font-size:clamp(38px,11vw,50px);font-weight:600;line-height:1.05;margin:0;position:relative}
+.amp{display:block;font-style:italic;font-weight:400;font-size:30px;color:var(--gold);margin:4px 0}
+.hint{position:absolute;bottom:14px;left:0;right:0;font-size:13px;color:rgba(247,240,225,.7)}
+.hint i{display:inline-block;font-style:normal;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(7px)}}
+/* text pages */
+.lead{font-size:22px;line-height:1.5;margin:0 0 14px}
+.orn{width:120px;height:18px;margin:22px auto}
+.orn path{fill:none;stroke:var(--gold);stroke-width:1.5;stroke-dasharray:1;stroke-dashoffset:1}
+.on .orn path{animation:draw 2s ease .6s forwards}
+.date{font-size:clamp(64px,22vw,96px);font-weight:600;color:var(--gold);line-height:1;margin:6px 0 0}
+.mon{font-size:30px;font-style:italic;margin:0}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:32px 0 0}
+.count div{border:1px solid rgba(212,170,85,.5);border-radius:10px;padding:10px 0}
+.count b{display:block;font-size:30px;font-weight:600;line-height:1.1}
+.count span{font-size:12px;color:rgba(247,240,225,.7)}
+.venue{background:var(--iv);color:var(--em);border-radius:14px;padding:28px 22px}
+.venue h2{font-size:30px;margin:0 0 8px;font-weight:600;line-height:1.15}
+.venue p{margin:0 0 20px;font-size:15px}
+.btn{display:inline-block;background:var(--rose);color:#fff;text-decoration:none;font-weight:500;font-size:15px;padding:13px 26px;border-radius:999px}
+.btn:focus-visible,.dots button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.on .pulse{animation:rise .9s both,pulse 2.4s 1.8s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(181,71,106,.5)}50%{box-shadow:0 0 0 12px rgba(181,71,106,0)}}
+.fin{font-size:26px;font-style:italic;margin:26px 0 0}
+.arab{font-family:'Amiri','Scheherazade New','Traditional Arabic',serif;font-size:26px;line-height:2;direction:rtl;color:var(--gold);margin:0 0 12px}
+.src{font-size:13px;color:var(--gold);margin:6px 0 0}
+.q{font-size:21px;line-height:1.5;margin:0}
+.card{background:var(--iv);color:var(--em);border-radius:16px;padding:24px 20px;margin:0 0 22px}
+.card .num{font-size:30px;font-weight:600;letter-spacing:.06em;margin:6px 0 4px}
+.card small{font-size:14px}
+.copy{margin-top:14px;border:0;cursor:pointer;font-family:inherit}
+/* sparkles */
+.sp{position:fixed;inset:0;pointer-events:none;z-index:0}
+.sp span{position:absolute;bottom:-12px;width:5px;height:5px;background:var(--gold);transform:rotate(45deg);opacity:0;animation:fl linear infinite}
+@keyframes fl{10%{opacity:.8}100%{transform:translateY(-105vh) rotate(225deg);opacity:0}}
+.pager,.dots{position:relative;z-index:1}
+.dots{position:fixed;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 22px);display:flex;justify-content:center;gap:10px;z-index:2}
+.dots button{width:10px;height:10px;padding:0;border-radius:50%;border:1px solid var(--gold);background:transparent;transition:.3s}
+.dots button[aria-current="true"]{background:var(--gold);width:26px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){.r{opacity:1}.on .r,.on .cover path,.on .orn path,.on .pulse,.hint i{animation:none}.cover path,.orn path{stroke-dashoffset:0}.sp{display:none}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--em:#0d352c}}
+:root[data-theme="dark"]{--em:#0d352c}
+</style>
+</head>
+<body>
+<div class="sp" id="sp" aria-hidden="true"></div>
+<div class="pager" id="pg">
+
+ <section class="slide on"><div class="box">
+  <div class="cover">
+   <svg viewBox="0 0 300 430" preserveAspectRatio="none" aria-hidden="true">
+    <path pathLength="1" stroke-width="2" d="M6 424V150A144 144 0 0 1 294 150V424Z"/>
+    <path pathLength="1" stroke-width="1" d="M16 414V152A134 134 0 0 1 284 152V414Z"/>
+   </svg>
+   <p class="serif gold r" style="--i:2;font-style:italic;font-size:18px;margin:0 0 20px">Bismillahir rohmanir rohiym</p>
+   <h1 class="names serif r" style="--i:3">Kuyov ismi<span class="amp">va</span>Kelin ismi</h1>
+   <p class="r" style="--i:5;margin:22px 0 0;font-size:15px">to'y taklifnomasi</p>
+  </div>
+  <p class="hint">Suring <i>→</i></p>
+ </div></section>
+
+ <section class="slide"><div class="box">
+  <p class="serif gold r" style="--i:0;font-size:26px;font-style:italic;margin:0 0 18px">Aziz mehmonimiz!</p>
+  <svg class="orn r" style="--i:1" viewBox="0 0 120 18" aria-hidden="true"><path pathLength="1" d="M2 9H46M74 9H118M60 2L67 9L60 16L53 9Z"/></svg>
+  <p class="lead serif r" style="--i:2">Hayotimizdagi eng baxtli kunda sizni o'z yonimizda ko'rishni istaymiz.</p>
+  <p class="lead serif r" style="--i:3">Nikoh to'yimiz dasturxoniga bosh bo'lib kelishingizni so'raymiz.</p>
+  <p class="r" style="--i:4;margin:22px 0 0;font-size:15px;color:rgba(247,240,225,.8)">Kuyov va kelin oilalari</p>
+ </div></section>
+
+ <section class="slide"><div class="box">
+  <p class="arab r" style="--i:0">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
+  <p class="q serif r" style="--i:1">Va Uning oyatlaridan biri: sizlarga o'zlaringizdan juftlar yaratdi, ularga qo'shilib orom olishingiz uchun va orangizda mehr-muhabbat hamda rahmat paydo qildi.</p>
+  <p class="src r" style="--i:2">Rum surasi, 21-oyat</p>
+  <svg class="orn r" style="--i:3" viewBox="0 0 120 18" aria-hidden="true"><path pathLength="1" d="M2 9H46M74 9H118M60 2L67 9L60 16L53 9Z"/></svg>
+  <p class="q serif r" style="--i:4">Ular sizlarga libos, sizlar ularga libossizlar.</p>
+  <p class="src r" style="--i:5">Baqara surasi, 187-oyat</p>
+ </div></section>
+
+ <section class="slide"><div class="box">
+  <p class="r" style="--i:0;margin:0;font-size:15px">Dushanba</p>
+  <p class="date serif r" style="--i:1">1</p>
+  <p class="mon serif r" style="--i:2">mart, 2027</p>
+  <p class="r" style="--i:3;margin:14px 0 0;font-size:18px">Soat <span class="gold serif" style="font-size:26px;font-weight:600">18:00</span></p>
+  <div class="count serif r" style="--i:4" aria-label="To'ygacha qolgan vaqt">
+   <div><b id="d">0</b><span>kun</span></div><div><b id="h">0</b><span>soat</span></div>
+   <div><b id="m">0</b><span>daqiqa</span></div><div><b id="s">0</b><span>soniya</span></div>
+  </div>
+ </div></section>
+
+ <section class="slide"><div class="box">
+  <p class="q serif r" style="--i:0">«Nikoh mening sunnatimdir. Kim mening sunnatimga amal qilmasa, mendan emas.»</p>
+  <p class="src r" style="--i:1">Hadis, Ibn Mojah rivoyati</p>
+  <svg class="orn r" style="--i:2" viewBox="0 0 120 18" aria-hidden="true"><path pathLength="1" d="M2 9H46M74 9H118M60 2L67 9L60 16L53 9Z"/></svg>
+  <p class="q serif r" style="--i:3">«Sizlarning eng yaxshilaringiz ahliga eng yaxshi munosabatda bo'lganingizdir.»</p>
+  <p class="src r" style="--i:4">Hadis, Termiziy rivoyati</p>
+ </div></section>
+
+ <section class="slide"><div class="box">
+  <p class="r serif gold" style="--i:0;margin:0 0 14px;font-size:22px;font-style:italic">To'y manzili</p>
+  <div class="venue r" style="--i:1">
+   <h2 class="serif">Tantanalar uyi toyxonasi</h2>
+   <p>Sizni kutib qolamiz</p>
+   <a class="btn pulse" href="https://www.google.com/maps/search/?api=1&query=Tantanalar+uyi+toyxonasi" target="_blank" rel="noopener">Xaritada ochish</a>
+  </div>
+  <p class="fin serif gold r" style="--i:3">Tashrifingiz biz uchun sharaf</p>
+ </div></section>
+
+ <section class="slide"><div class="box">
+  <p class="serif gold r" style="--i:0;font-size:24px;font-style:italic;margin:0 0 6px">Kelin va kuyovga sovg'a</p>
+  <p class="r" style="--i:1;margin:0 0 20px;font-size:15px;color:rgba(247,240,225,.8)">Duo bilan birga hadya qilmoqchi bo'lsangiz, karta raqami:</p>
+  <div class="card r" style="--i:2">
+   <small>Karta raqami</small>
+   <p class="num serif" id="cn">0000 0000 0000 0000</p>
+   <small>Karta egasi: Ism Familiya</small><br>
+   <button class="btn copy" id="cp" type="button">Raqamni nusxalash</button>
+  </div>
+  <p class="fin serif gold r" style="--i:4;margin:0">Baxtli bo'lsinlar!</p>
+ </div></section>
+</div>
+<nav class="dots" id="dots" aria-label="Sahifalar"></nav>
+<script>
+(function(){
+ var pg=document.getElementById('pg'),sl=[].slice.call(pg.children),dots=document.getElementById('dots'),bs=[];
+ sl.forEach(function(s,i){var b=document.createElement('button');b.setAttribute('aria-label',(i+1)+'-sahifa');
+  b.onclick=function(){s.scrollIntoView({behavior:'smooth',inline:'start',block:'nearest'})};dots.appendChild(b);bs.push(b)});
+ function mark(i){bs.forEach(function(b,k){b.setAttribute('aria-current',k===i)})}mark(0);
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){
+  if(e.isIntersecting){sl.forEach(function(s){s.classList.remove('on')});e.target.classList.add('on');mark(sl.indexOf(e.target))}})},{root:pg,threshold:.6});
+ sl.forEach(function(s,i){if(i)s.classList.remove('on');io.observe(s)});
+ var sp=document.getElementById('sp');
+ for(var i=0;i<16;i++){var x=document.createElement('span');x.style.left=Math.random()*100+'%';
+  x.style.animationDuration=(9+Math.random()*9)+'s';x.style.animationDelay=(-Math.random()*14)+'s';
+  x.style.transform='scale('+(.6+Math.random())+') rotate(45deg)';sp.appendChild(x)}
+ var cp=document.getElementById('cp');cp.onclick=function(){var v=document.getElementById('cn').textContent;
+  function ok(){cp.textContent='Nusxalandi';setTimeout(function(){cp.textContent='Raqamni nusxalash'},2000)}
+  try{navigator.clipboard.writeText(v).then(ok,function(){})}catch(e){}};
+ var t=new Date(2027,2,1,18,0,0).getTime();
+ function p(id,v){document.getElementById(id).textContent=v}
+ function tick(){var l=Math.max(0,t-Date.now());p('d',Math.floor(l/864e5));p('h',Math.floor(l%864e5/36e5));p('m',Math.floor(l%36e5/6e4));p('s',Math.floor(l%6e4/1e3))}
+ tick();setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
